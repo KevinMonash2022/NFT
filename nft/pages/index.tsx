@@ -9,8 +9,20 @@ import { useWeb3 } from '@/components/providers/web3';
 
 const Home: NextPage = () => {
   // const { ethereum, provider, isLoading, contract } = useWeb3();
-  const { provider } = useWeb3();
+  const { provider, contract } = useWeb3();
+
+
+  const getNftInfo = async () => {
+    console.log(await contract!.name());
+    console.log(await contract!.symbol());
+  }
+
+  if (contract) {
+    getNftInfo();
+  }
+
   // console.log(provider);
+  console.log(contract);
 
   const getAccounts = async () => {
     const accounts = await provider!.listAccounts();
