@@ -40,19 +40,19 @@ export const loadContract = async (
 ): Promise<Contract> => {
 
     // console.log("Network ID is:", NETWORK_ID);
-    debugger
+    // debugger
     if (!NETWORK_ID) {
         return Promise.reject("Network ID is not defined!");
     }
 
-    debugger
+    // debugger
     const res = await fetch(`/contracts/${name}.json`);
     const Artifact = await res.json();
 
     // console.log("Artifact data:", Artifact);
     // console.log("Network configurations:", Artifact.networks);
 
-    debugger
+    // debugger
     const ID = parseInt(NETWORK_ID, 10);
     // console.log("ID is ", ID)
     // console.log("Network-specific config:", Artifact.networks[ID]);
@@ -66,7 +66,7 @@ export const loadContract = async (
             Artifact.abi,
             provider
         )
-        debugger
+        // debugger
         return contract;
     } else {
         return Promise.reject(`Contract: [${name}] cannot be loaded!`);
